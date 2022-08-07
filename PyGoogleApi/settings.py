@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    "PyApi",
 ]
 
 MIDDLEWARE = [
@@ -103,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-gb"
 
 TIME_ZONE = "UTC"
 
@@ -115,7 +118,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
 STATIC_URL = "static/"
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+
+GOOGLE_API_KEY = "AIzaSyCbbUKBKg9tBBxGhdFdxZY9IcJZd12WjjI"
+
+RECAPTCHA_KEY = "6LdTrlYhAAAAAABhxeiCChsjfx_L1zzH9Qi3txUl"
+
+RECAPTCHA_SECRET_KEY = "6LdTrlYhAAAAACUJ3SBmqbnmRZ9YGxaxuJbSYA0a"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
